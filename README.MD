@@ -1,12 +1,12 @@
 # AoC 2022
 
-Written in c++ to train for my GIP Module.
+Written in C++ to train for my GIP Module.
 
 | Day | Star 1 | Star 2 | Execution Time    |
 | --- | ------ | ------ | ----------------- |
-| 1   | ✔️     | ✔️     | 0.004288 Sekunden |
-| 2   | ✔️     | ✔️     | 0.004927 Sekunden |
-| 3   | ✔️     | ✔️     | 0.003019 Sekunden |
+| 1   | ✔️     | ✔️     | 0.004288 Seconds |
+| 2   | ✔️     | ✔️     | 0.004927 Seconds |
+| 3   | ✔️     | ✔️     | 0.003019 Seconds |
 | 4   | ❌     | ❌     |                   |
 | 5   | ❌     | ❌     |                   |
 | 6   | ❌     | ❌     |                   |
