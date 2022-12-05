@@ -1,9 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <time.h>
 
 int main() {
-    clock_t time = clock();
     std::ifstream file("./input.txt");
     std::string line;
 
@@ -51,7 +49,6 @@ int main() {
 
     std::cout << "Star One: " << points_1 << std::endl;
     std::cout << "Star Two: " << points_2 << std::endl;
-    std::cout << (float) time / CLOCKS_PER_SEC << " Sekunden" << std::endl;
 
     return 0;
 }
