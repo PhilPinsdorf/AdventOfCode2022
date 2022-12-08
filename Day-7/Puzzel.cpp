@@ -1,6 +1,5 @@
 #include <iostream>
 #include <map>
-#include <vector>
 #include <fstream>
 #include <string>
 
@@ -11,8 +10,7 @@ int free_min = 0;
 struct Directory
 {
     int size;
-    std::string dir_name;
-    std::vector<Directory*> subdirectorys;
+    std::map<std::string, Directory*> subdirectorys;
     Directory* parent;
 };
 
@@ -29,9 +27,8 @@ void go_through_directories(Directory* ptr) {
     }
 
     // Recursive call on all child directorys
-    for (int i = 0; i < ptr->subdirectorys.size(); i++)
-    {
-        go_through_directories(ptr->subdirectorys.at(i));
+    for (const auto& [dir_name, dir] : ptr->subdirectorys) {
+        go_through_directories(dir);
     }
 }
 
@@ -42,7 +39,6 @@ int main() {
     // Create root Directory and duplicate Pointer to run through Data structure
     Directory* root = new Directory;
     root->size = 0;
-    root->dir_name = "/";
     root->parent = nullptr;
     root->subdirectorys = {};
 
@@ -61,11 +57,12 @@ int main() {
         if(line.substr(0, 3) == "dir") {
             Directory* dir = new Directory;
             dir->size = 0;
-            dir->dir_name = line.substr(4, line.length() - 4);
             dir->parent = ptr;
             dir->subdirectorys = {};
+
+            std::string dir_name = line.substr(4, line.length() - 4);
             
-            ptr->subdirectorys.push_back(dir);
+            ptr->subdirectorys[dir_name] = dir;
             continue;
         }
 
@@ -79,14 +76,8 @@ int main() {
                 ptr = ptr->parent;
             } else {
                 // Go into Directory
-                for (int i = 0; i < ptr->subdirectorys.size(); i++)
-                {
-                    // Search for right directory
-                    if(ptr->subdirectorys.at(i)->dir_name == operation) {
-                        ptr = ptr->subdirectorys.at(i);
-                        break;
-                    }
-                }
+                ptr = ptr->subdirectorys[operation];
+    
             }
             continue;
         }
