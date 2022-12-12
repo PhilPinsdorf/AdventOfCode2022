@@ -14,8 +14,6 @@ struct Monkey
     unsigned long long inspected;
 };
 
-int mod = 1;
-
 bool compare (unsigned long long i,unsigned long long j) { return (i>j); }
 
 unsigned long long calculate(unsigned long long a, std::string c, unsigned long long b) {
@@ -31,6 +29,7 @@ int main() {
     std::string line;
     std::ifstream input("input.txt");
     std::vector<Monkey> monkeys;
+    int mod = 1;
 
     // Parse Monkeys
     while (getline(input, line))

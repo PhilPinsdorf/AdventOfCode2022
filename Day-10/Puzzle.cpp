@@ -43,7 +43,7 @@ int main() {
             continue;
         }
 
-        // Addx Operation
+        // AddX Operation
         int add = std::stoi(line.substr(5));
         for (int i = 0; i < 2; i++)
         {

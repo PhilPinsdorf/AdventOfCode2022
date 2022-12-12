@@ -13,6 +13,7 @@ struct Position
     }
 };
 
+
 int main() {
     Position head = {0, 0};
     Position tail = {0, 0};
